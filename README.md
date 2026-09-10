@@ -19,20 +19,20 @@ Two scheduled background jobs run without any manual triggering: one flags rent 
 ## Architecture
 
 ```
-┌────────────────────────────────────────────┐
+┌─────────────────────────────────────────────┐
 │           React + Vite Frontend             │
 │   Owner dashboard · Tenant portal           │
 │   Tailwind CSS · React Router · Axios       │
-└───────────────────┬──────────────────────────┘
-                     │ REST + JWT (Bearer token)
+└───────────────────┬─────────────────────────┘
+                    │ REST + JWT (Bearer token)
 ┌───────────────────▼──────────────────────────┐
-│            Spring Boot Backend :8080          │
-│   REST API · Spring Security · Role based ACL  │
-│   @Scheduled jobs: overdue rent, lease expiry   │
+│            Spring Boot Backend :8080         │
+│   REST API · Spring Security · Role based ACL│
+│   @Scheduled jobs: overdue rent, lease expiry│
 └───────────────────┬──────────────────────────┘
-                     │ Flyway managed schema
+                    │ Flyway managed schema
 ┌───────────────────▼──────────────────────────┐
-│   H2 (in memory, default) or MySQL (prod)      │
+│   H2 (in memory, default) or MySQL (prod)    │
 └──────────────────────────────────────────────┘
 ```
 
